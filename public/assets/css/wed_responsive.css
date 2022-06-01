@@ -1,0 +1,607 @@
+@media only screen and (max-width: 768px) {
+
+    /* icon facebook, youtobe ...*/
+    .next-slide .icon {
+        display: none;
+    }
+
+    header {
+        min-width: 100%;
+    }
+
+    header .top-navigation .top-header {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+    }
+
+    header .top-navigation .top_header a {
+        white-space: nowrap;
+        font-size: 10px;
+        margin-right: 0px;
+    }
+
+    header .heading .content {
+        flex-direction: row;
+        height: 80px;
+        width: 100%;
+    }
+
+    header .heading .content .logo {
+        width: 30%;
+    }
+
+    header .heading .content .logo img {
+        width: 220px;
+    }
+
+    header .heading .content .box_search {
+        width: 20%;
+        margin-right: 0px;
+    }
+
+    header .heading .content .check .check_order {
+        margin-right: 5px;
+    }
+
+    header .heading .content .check {
+        width: 50%;
+    }
+
+    /* nav */
+    header nav .nav-content .content {
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+
+    header nav .nav-content .content span i {
+        font-size: 20px;
+    }
+
+    header nav .nav-content .content a span {
+        font-size: 10px;
+        font-weight: 100;
+        white-space: nowrap;
+        text-transform: lowercase;
+    }
+
+    /* endnav */
+
+    .slideshow .content-dot .dot:nth-last-of-type(4) {
+        padding: 10px 0px 10px 15px;
+    }
+
+    /* APPLE AUTHORISED RESELLER */
+    .box-home .item .img .flash {
+        display: flex;
+        font-size: 8px;
+    }
+
+    .box-home .item .img .giasoc {
+        height: 30px;
+    }
+
+    /* khuyến mãi */
+    section .sale .box-home .item .money strong {
+        font-size: 9px;
+    }
+
+    section .sale .box-home .item .money div strong {
+        font-size: 10px;
+    }
+
+    section .sale .box-home .item .money div del {
+        font-size: 10px;
+    }
+
+    section .sale .box-home .item .note label{
+        font-size: 9px;
+    }
+
+    section .sale .box-home .note1,
+    .note5,
+    .note6 {
+        margin-top: 20px;
+    }
+
+    section .sale .box-home .note4 {
+        margin-top: 10px;
+    }
+
+    /* end khuyến mãi */
+
+    /* có thể bạn thích */
+    section .like .item img {
+        margin-top: 0px;
+    }
+
+    section .like .item .money div {
+        white-space: nowrap;
+    }
+
+    section .like .item .img2 {
+        margin-top: 20px;
+    }
+
+    section .like .item .money div strong, del {
+        font-size: 10px;
+    }
+
+    section .like .item .money .item1 {
+        margin-top: 20px;
+    }
+
+    /* end có thể bạn thích */
+
+    /* Điện thoại nổi bật */
+    .phone_context .item .img .sale {
+        padding: 3px 0px 0px 0px;
+        bottom: 0px;
+    }
+
+    /* đồng hồ thông mminh */
+    section .watch_context .content .item_watch .money {
+        font-size: 9px;
+    }
+
+    section .watch_context .content .item_watch .money div {
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    section .watch_context .content .item_watch .money div strong {
+        font-size: 9px;
+    }
+
+    section .watch_context .content .item_watch .money strong {
+        font-size: 8px;
+    }
+
+    section .watch_context .content .item_watch .note label {
+        font-size: 9px;
+        margin: 0px;
+    }
+
+    section .phone .phone_context .item .money{
+        font-size: 9px;
+    }
+
+    section .phone .phone_context .item .money strong{
+        font-size: 8px;
+    }
+
+    section .phone .phone_context .item .money div {
+        font-size: 9px;
+    }
+
+    section .phone .phone_context .item .note label{
+        font-size: 9px;
+    }
+
+    .phone_context .item .img .sale{
+        font-size: 9px;
+    }
+
+    .phone_context .item .img .flash{
+        font-size: 9px;
+        white-space: nowrap;
+        bottom: 0px;
+    }
+
+    /* end đồng hồ thông minh */
+
+    /* tin công nghệ */
+    section .new .technology .item div strong{
+        font-size: 10px;
+    }
+    /* end tin công nghệ */
+
+    .accessory ul li {
+        margin-right: 4px;
+    }
+
+    .accessory ul li a img {
+        width: 40%;
+    }
+
+    .accessory ul li a label {
+        white-space: nowrap;
+        font-size: 8px;
+    }
+
+    .corevalue .content {
+        margin-top: 20px;
+        padding: 0px;
+    }
+
+    .corevalue .content .img {
+        width: 15%;
+    }
+
+    .corevalue .content .text1 span {
+        white-space: nowrap;
+    }
+
+    .corevalue .content .text strong {
+        white-space: nowrap;
+    }
+
+    .corevalue .content .item span i {
+        font-size: 30px;
+    }
+
+    .corevalue .content img {
+        font-size: 30px;
+    }
+
+    .corevalue .content .input-content {
+        width: 45%;
+    }
+
+    .corevalue .content .text {
+        margin-left: 10px;
+    }
+
+    .corevalue .content .text span {
+        white-space: nowrap;
+        font-size: 8px;
+    }
+
+    .corevalue .content .input-content input {
+        padding: 10px;
+    }
+
+    .end-content .content .item .item-content span {
+        font-size: 8px;
+    }
+
+    .end-content .content .item .item-content h6 {
+        font-size: 10px;
+    }
+
+    .end-content .content .item .item-content .phone {
+        font-size: 10px;
+    }
+
+    .end-content .content .item .item-content .img1 img {
+        width: 40%;
+    }
+
+    .end-content .content .item .item-content .img2 img {
+        width: 40%;
+    }
+
+    .end-content .content .item .item-content .img3 img {
+        width: 40%;
+    }
+
+    .end-content .content .item .item-content .img4 div img {
+        width: 40%;
+    }
+
+    .end-content .content .item .item-content .img4 img {
+        width: 90%;
+    }
+
+    .end-content .info {
+        font-size: 9px;
+    }
+
+    section .flash-sale .hour strong{
+        padding: 4px 9px;
+    }
+
+    section .flash-sale .text{
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    /* icon facebook, youtobe ...*/
+    .next-slide .icon {
+        display: none;
+    }
+
+    header {
+        min-width: 100%;
+    }
+
+    header .top-navigation .top-header {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+    }
+
+    header .top-navigation .top_header a {
+        white-space: nowrap;
+        font-size: 10px;
+        margin-right: 0px;
+    }
+
+    header .heading .content {
+        flex-direction: row;
+        height: 80px;
+        width: 100%;
+    }
+
+    header .heading .content .logo {
+        width: 30%;
+    }
+
+    header .heading .content .logo img {
+        width: 220px;
+    }
+
+    header .heading .content .box_search {
+        width: 20%;
+        margin-right: 0px;
+    }
+
+    header .heading .content .check .check_order {
+        margin-right: 5px;
+    }
+
+    header .heading .content .check {
+        width: 50%;
+    }
+
+    /* nav */
+    header nav .nav-content .content {
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+
+    header nav .nav-content .content span i {
+        font-size: 20px;
+    }
+
+    header nav .nav-content .content a span {
+        font-size: 10px;
+        font-weight: 100;
+        white-space: nowrap;
+        text-transform: lowercase;
+    }
+
+    /* endnav */
+
+    .slideshow .content-dot .dot:nth-last-of-type(4) {
+        padding: 10px 0px 10px 15px;
+    }
+
+    /* APPLE AUTHORISED RESELLER */
+    .box-home .item .img .flash {
+        display: flex;
+        font-size: 8px;
+    }
+
+    .box-home .item .img .giasoc {
+        height: 30px;
+    }
+
+    /* khuyến mãi */
+    section .sale .box-home .item .money strong {
+        font-size: 9px;
+    }
+
+    section .sale .box-home .item .money div strong {
+        font-size: 10px;
+    }
+
+    section .sale .box-home .item .money div del {
+        font-size: 10px;
+    }
+
+    section .sale .box-home .item .note label{
+        font-size: 9px;
+    }
+
+    section .sale .box-home .note1,
+    .note5,
+    .note6 {
+        margin-top: 20px;
+    }
+
+    section .sale .box-home .note4 {
+        margin-top: 10px;
+    }
+
+    /* end khuyến mãi */
+
+    /* có thể bạn thích */
+    section .like .item img {
+        margin-top: 0px;
+    }
+
+    section .like .item .money div {
+        white-space: nowrap;
+    }
+
+    section .like .item .img2 {
+        margin-top: 20px;
+    }
+
+    section .like .item .money div strong, del {
+        font-size: 10px;
+    }
+
+    section .like .item .money .item1 {
+        margin-top: 20px;
+    }
+
+    /* end có thể bạn thích */
+
+    /* Điện thoại nổi bật */
+    .phone_context .item .img .sale {
+        padding: 3px 0px 0px 0px;
+        bottom: 0px;
+    }
+
+    /* đồng hồ thông mminh */
+    section .watch_context .content .item_watch .money {
+        font-size: 9px;
+    }
+
+    section .watch_context .content .item_watch .money div {
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    section .watch_context .content .item_watch .money div strong {
+        font-size: 9px;
+    }
+
+    section .watch_context .content .item_watch .money strong {
+        font-size: 8px;
+    }
+
+    section .watch_context .content .item_watch .note label {
+        font-size: 9px;
+        margin: 0px;
+    }
+
+    section .phone .phone_context .item .money{
+        font-size: 9px;
+    }
+
+    section .phone .phone_context .item .money strong{
+        font-size: 8px;
+    }
+
+    section .phone .phone_context .item .money div {
+        font-size: 9px;
+    }
+
+    section .phone .phone_context .item .note label{
+        font-size: 9px;
+    }
+
+    .phone_context .item .img .sale{
+        font-size: 9px;
+    }
+
+    .phone_context .item .img .flash{
+        font-size: 9px;
+        white-space: nowrap;
+        bottom: 0px;
+    }
+
+    /* end đồng hồ thông minh */
+
+    /* tin công nghệ */
+    section .new .technology .item div strong{
+        font-size: 10px;
+    }
+    /* end tin công nghệ */
+
+    .accessory ul li {
+        margin-right: 4px;
+    }
+
+    .accessory ul li a img {
+        width: 40%;
+    }
+
+    .accessory ul li a label {
+        white-space: nowrap;
+        font-size: 8px;
+    }
+
+    .corevalue .content {
+        margin-top: 20px;
+        padding: 0px;
+    }
+
+    .corevalue .content .img {
+        width: 15%;
+    }
+
+    .corevalue .content .text1 span {
+        white-space: nowrap;
+    }
+
+    .corevalue .content .text strong {
+        white-space: nowrap;
+    }
+
+    .corevalue .content .item span i {
+        font-size: 30px;
+    }
+
+    .corevalue .content img {
+        font-size: 30px;
+    }
+
+    .corevalue .content .input-content {
+        width: 45%;
+    }
+
+    .corevalue .content .text {
+        margin-left: 10px;
+    }
+
+    .corevalue .content .text span {
+        white-space: nowrap;
+        font-size: 8px;
+    }
+
+    .corevalue .content .input-content input {
+        padding: 10px;
+    }
+
+    .end-content .content .item .item-content span {
+        font-size: 8px;
+    }
+
+    .end-content .content .item .item-content h6 {
+        font-size: 10px;
+    }
+
+    .end-content .content .item .item-content .phone {
+        font-size: 10px;
+    }
+
+    .end-content .content .item .item-content .img1 img {
+        width: 40%;
+    }
+
+    .end-content .content .item .item-content .img2 img {
+        width: 40%;
+    }
+
+    .end-content .content .item .item-content .img3 img {
+        width: 40%;
+    }
+
+    .end-content .content .item .item-content .img4 div img {
+        width: 40%;
+    }
+
+    .end-content .content .item .item-content .img4 img {
+        width: 90%;
+    }
+
+    .end-content .info {
+        font-size: 9px;
+    }
+
+    section .flash-sale .hour strong{
+        padding: 2px 5px;
+        font-size: 8px;
+        border-radius: 3px;
+    }
+
+    section .flash-sale .text{
+        font-size: 10px;
+        margin-right: 10px;
+    }
+
+    .box-home-text .item h4 {
+        padding: 5px 30px 5px 35px;
+        margin: 0 0 0 50px;
+        font-size: 8px;
+    }
+
+}
+
