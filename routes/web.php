@@ -1,5 +1,7 @@
 <?php
+
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AppleController;
 use App\Http\Controllers\HomeContentController;
 use App\Http\Controllers\PhoneContentController;
 use App\Http\Controllers\UserController;
@@ -17,19 +19,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [HomeController::class, 'viewHome'])-> name('home');
 
-Route::get('hoangha', [UserController::class, 'hoangha']) -> name('hoangha');
+Route::get('/', [HomeController::class, 'viewHome'])->name('home');
 
-Route::get('user/register', [UserController::class, 'register']) -> name('register');
+Route::get('hoangha', [UserController::class, 'hoangha'])->name('hoangha');
 
-Route::get('user/login', [UserController::class, 'login']) -> name('login');
+Route::get('user/register', [UserController::class, 'register'])->name('register');
 
-Route::post('hoangha', [UserController::class, 'register_action']) -> name('register.action');
+Route::get('user/login', [UserController::class, 'login'])->name('login');
 
-Route::post('login123', [UserController::class, 'login_action']) -> name('login.action');
+Route::post('hoangha', [UserController::class, 'register_action'])->name('register.action');
 
-Route::get('logout', [UserController::class, 'logout']) -> name('logout');
+Route::post('login123', [UserController::class, 'login_action'])->name('login.action');
+
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
 
 //admin
@@ -45,7 +48,7 @@ Route::delete('admin/index/{user_id}', [CustomerController::class, 'destroy'])->
 Route::put('admin/index/{user_id}', [CustomerController::class, 'update'])->name('admin.update');
 
 // product
-Route::get('admin/product', [ProductController::class, 'view_product']) -> name('product');
+Route::get('admin/product', [ProductController::class, 'view_product'])->name('product');
 
 Route::post('admin/product', [ProductController::class, 'product_store'])->name('product.store');
 
@@ -137,16 +140,27 @@ Route::group(['prefix' => 'phonecontent'], function () {
     Route::get('manager', [PhoneContentController::class, 'manager'])->name('phonecontent.manager');
     Route::post('manager', [PhoneContentController::class, 'manager_store'])->name('manager.store');
     Route::delete('manager/{id}', [PhoneContentController::class, 'manager_delete'])->name('manager.delete');
-    Route::get('phone0', [PhoneContentController::class, 'phonecontent_phone0_index'])->name('phonecontent.phone0');
-    // Route::post('shoppingCart', [PhoneContentController::class, 'phonecontent_phone0_post'])->name('phonecontent_shoppingCart.phone0');
-    Route::get('phone1', [PhoneContentController::class, 'phonecontent_phone1_index'])->name('phonecontent.phone1');
-    Route::get('phone2', [PhoneContentController::class, 'phonecontent_phone2_index'])->name('phonecontent.phone2');
-    Route::get('phone3', [PhoneContentController::class, 'phonecontent_phone3_index'])->name('phonecontent.phone3');
-    Route::get('phone4', [PhoneContentController::class, 'phonecontent_phone4_index'])->name('phonecontent.phone4');
-    Route::get('phone5', [PhoneContentController::class, 'phonecontent_phone5_index'])->name('phonecontent.phone5');
-    Route::get('phone6', [PhoneContentController::class, 'phonecontent_phone5_index'])->name('phonecontent.phone6');
-    Route::get('phone7', [PhoneContentController::class, 'phonecontent_phone7_index'])->name('phonecontent.phone7');
-    Route::get('phone8', [PhoneContentController::class, 'phonecontent_phone8_index'])->name('phonecontent.phone8');
-    Route::get('phone9', [PhoneContentController::class, 'phonecontent_phone8_index'])->name('phonecontent.phone9');
-    Route::get('shoppingCart', [PhoneContentController::class, 'shoppingCart_index'])->name('shoppingCart');
+
+    Route::get('phone/{id}', [PhoneContentController::class, 'phonecontent_phone_index'])->name('phonecontent.phone.new');
+    Route::post('shoppingCart/{id}', [PhoneContentController::class, 'phonecontent_phone_post'])->name('phonecontent_shoppingCart.phone0');
+    Route::post('phonecontent_product/{id}', [PhoneContentController::class, 'phonecontent_product_post'])->name('phonecontent_product.phone0');
+    Route::post('phone/{id}', [CommentContentController::class, 'comment_index'])->name('comment');
+
+    Route::get('shoppingCart', [PhoneContentController::class, 'shoppingCart_index'])->name('phonecontent.shoppingCart');
+    Route::post('shoppingCart1/{id}', [PhoneContentController::class, 'shoppingCart_delete'])->name('phonecontent.shoppingCart_delete');
+    Route::post('shoppingCartIncrement/{id}', [PhoneContentController::class, 'shoppingCart_increment'])->name('incrementphone');
+    Route::post('shoppingCartDecrement/{id}', [PhoneContentController::class, 'shoppingCart_decrement'])->name('decrementphone');
+    Route::post('success', [PhoneContentController::class, 'shoppingCart_post'])->name('button_shoppingCart');
+});
+
+
+Route::prefix('apple')->group(function () {
+    Route::get('apple/{home_product_id}', [AppleController::class, 'apple_index'])->name('apple.index');
+    Route::post('shoppingCart/{home_product_id}', [AppleController::class, 'phonecontent_apple_post'])->name('shoppingApple.apple0');
+
+    Route::get('shoppingApple', [AppleController::class, 'apple'])->name('apple');
+    Route::post('shoppingApple/{home_product_id}', [AppleController::class, 'shoppingApple_delete'])->name('shoppingApple.delete');
+    Route::post('shoppingAppleIncrement/{home_product_id}', [AppleController::class, 'shoppingApple_increment'])->name('increment');
+    Route::post('shoppingAppleDecrement/{home_product_id}', [AppleController::class, 'shoppingApple_decrement'])->name('decrement');
+    Route::post('success', [AppleController::class, 'shoppingApple_post'])->name('button_shoppingApple');
 });

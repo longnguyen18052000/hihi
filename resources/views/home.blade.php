@@ -17,21 +17,21 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/c93a607241.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="<?php echo asset('assets/css/index.css') ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('assets/css/login.css') ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('assets/css/wed_responsive.css') ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('assets/css/index.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('assets/css/login.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('assets/css/wed_responsive.css'); ?>" type="text/css">
 
-    <link rel="stylesheet" href="<?php echo asset('assets/bootstrap/css/bootstrap.css') ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('assets/bootstrap/css/bootstrap.min.css') ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('assets/bootstrap/css/bootstrap.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('assets/bootstrap/css/bootstrap.min.css'); ?>" type="text/css">
 
-    <script type="text/javascript" src="{{URL::asset('assets/bootstrap/js/bootstrap.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/bootstrap/js/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
 </head>
 
 <body>
     <header>
         <div class="add">
-            <img src="{{asset('images//bubble_00.dcaf1b50.svg')}}" alt="logo" />
+            <img src="{{ asset('images//bubble_00.dcaf1b50.svg') }}" alt="logo" />
         </div>
         <!-- top-navigation -->
         <div class="top-navigation">
@@ -82,20 +82,20 @@
                             <div>
                                 <label><strong>Tài khoản</strong></label>
                                 <input type="text" class="enter" name="name">
-                                @if($errors->any())
-                                @foreach($errors->get('name') as $err)
-                                <div class="text text-danger">{{ $err }}</div>
-                                @endforeach
+                                @if ($errors->any())
+                                    @foreach ($errors->get('name') as $err)
+                                        <div class="text text-danger">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label class="mt-3"><strong>Mật khẩu</strong></label>
                                 <input type="password" class="enter" name="password">
-                                @if($errors->any())
-                                @foreach($errors->get('password') as $err)
-                                <div class="text text-danger">{{ $err }}</div>
-                                @endforeach
+                                @if ($errors->any())
+                                    @foreach ($errors->get('password') as $err)
+                                        <div class="text text-danger">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
@@ -115,7 +115,8 @@
                     </div>
 
                     <div class="col-1">
-                        <button class="w-100 border border-0 mt-3 bg-white" style="color:red" onclick="document.getElementById('login').style.display='none'"><strong>X</strong></span>
+                        <button class="w-100 border border-0 mt-3 bg-white" style="color:red"
+                            onclick="document.getElementById('login').style.display='none'"><strong>X</strong></span>
                     </div>
 
                 </div>
@@ -135,119 +136,131 @@
                         <h2><strong>Đăng ký tài khoản</strong></h2>
                         <span>Chú ý các nội dung có dấu * bạn cần phải nhập</span>
 
-                        <form action="{{route ('register.action') }}" method="POST" class="w-100">
+                        <form action="{{ route('register.action') }}" method="POST" class="w-100">
                             @csrf
 
                             <div>
                                 <label><strong>Tài khoản</strong></label>
-                                <input type="text" name="name" placeholder="Họ tên *" value=" {{ old('name') }}" require>
-                                @if($errors->any())
-                                @foreach($errors->get('name') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="text" name="name" placeholder="Họ tên *" value=" {{ old('name') }}"
+                                    require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('name') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label><strong>Họ Tên</strong></label>
-                                <input type="text" name="username" placeholder="Họ tên *" value="{{ old('username') }}" require>
-                                @if($errors->any())
-                                @foreach($errors->get('username') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="text" name="username" placeholder="Họ tên *"
+                                    value="{{ old('username') }}" require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('username') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label><strong>Mật khẩu</strong></label>
                                 <input type="password" name="password" placeholder="Mật khẩu *" require>
-                                @if($errors->any())
-                                @foreach($errors->get('password') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                @if ($errors->any())
+                                    @foreach ($errors->get('password') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label><strong>Nhập lại mật khẩu</strong></label>
-                                <input type="password" name="comfirm_password" placeholder="Nhập lại mật khẩu *" require>
-                                @if($errors->any())
-                                @foreach($errors->get('comfirm_password') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="password" name="comfirm_password" placeholder="Nhập lại mật khẩu *"
+                                    require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('comfirm_password') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label><strong>Email</strong></label>
-                                <input type="email" name="email" placeholder="Email *" value="{{ old('email') }}" require>
-                                @if($errors->any())
-                                @foreach($errors->get('email') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="email" name="email" placeholder="Email *" value="{{ old('email') }}"
+                                    require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('email') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div class="row">
                                 <label class="col-3"><strong>Giới tính</strong></label>
                                 <div class="row col-8">
-                                    <label class="d-flex align-items-center"><input class="col-6" type="radio" name="gender" value="1" require>Nam</label>
-                                    <label class="d-flex align-items-center"><input class="col-6" type="radio" name="gender" value="0" require>Nữ</label>
-                                    @if($errors->any())
-                                    @foreach($errors->get('gender') as $err)
-                                    <div class="text text-danger" style="margin-left:20px">{{ $err }}</div>
-                                    @endforeach
+                                    <label class="d-flex align-items-center"><input class="col-6" type="radio"
+                                            name="gender" value="1" require>Nam</label>
+                                    <label class="d-flex align-items-center"><input class="col-6" type="radio"
+                                            name="gender" value="0" require>Nữ</label>
+                                    @if ($errors->any())
+                                        @foreach ($errors->get('gender') as $err)
+                                            <div class="text text-danger" style="margin-left:20px">{{ $err }}
+                                            </div>
+                                        @endforeach
                                     @endif
                                 </div>
                             </div>
 
                             <div>
                                 <label><strong>Ngày tháng năm sinh</strong></label>
-                                <input type="date" name="date_of_birth" placeholder="Ngày tháng năm sinh" value="{{ old('date_of_birth') }}" require>
-                                @if($errors->any())
-                                @foreach($errors->get('date_of_birth') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="date" name="date_of_birth" placeholder="Ngày tháng năm sinh"
+                                    value="{{ old('date_of_birth') }}" require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('date_of_birth') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label><strong>Điện thoại</strong></label>
-                                <input type="tel" name="phone" placeholder="Điện thoại *" value="{{ old('phone') }}" require>
-                                @if($errors->any())
-                                @foreach($errors->get('phone') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="tel" name="phone" placeholder="Điện thoại *" value="{{ old('phone') }}"
+                                    require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('phone') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label><strong>Địa chỉ</strong></label>
-                                <input type="text" name="address" placeholder="Địa chỉ *" value="{{ old('address') }}" require>
-                                @if($errors->any())
-                                @foreach($errors->get('address') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="text" name="address" placeholder="Địa chỉ *"
+                                    value="{{ old('address') }}" require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('address') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label><strong>Tỉnh/Thành phố</strong></label>
-                                <input type="text" name="city" placeholder="Chọn tỉnh/Thành phố" value="{{ old('city') }}" require>
-                                @if($errors->any())
-                                @foreach($errors->get('city') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="text" name="city" placeholder="Chọn tỉnh/Thành phố"
+                                    value="{{ old('city') }}" require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('city') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
                             <div>
                                 <label><strong>Quận/Huyện</strong></label>
-                                <input type="text" name="district" placeholder="Chọn Quận/Huyện *" value="{{ old('district') }}" require>
-                                @if($errors->any())
-                                @foreach($errors->get('district') as $err)
-                                <div class="text text-danger text-center">{{ $err }}</div>
-                                @endforeach
+                                <input type="text" name="district" placeholder="Chọn Quận/Huyện *"
+                                    value="{{ old('district') }}" require>
+                                @if ($errors->any())
+                                    @foreach ($errors->get('district') as $err)
+                                        <div class="text text-danger text-center">{{ $err }}</div>
+                                    @endforeach
                                 @endif
                             </div>
 
@@ -257,7 +270,8 @@
                         </form>
                     </div>
                     <div class="col-1">
-                        <button class="w-100 border border-0 mt-3 bg-white" style="color:red" onclick="document.getElementById('resgiter').style.display='none'"><strong>X</strong></button>
+                        <button class="w-100 border border-0 mt-3 bg-white" style="color:red"
+                            onclick="document.getElementById('resgiter').style.display='none'"><strong>X</strong></button>
                     </div>
                 </div>
             </div>
@@ -269,13 +283,14 @@
             <div class="container pb-4 pt-4 d-flex w-100 content">
 
                 <div class="logo">
-                    <img src="{{asset('images/logo-text.png')}}" alt="logo" />
+                    <img src="{{ asset('images/logo-text.png') }}" alt="logo" />
                 </div>
 
                 <div class="d-flex align-items-center box_search">
                     <div class="w-100">
                         <form action="#" class="w-100 bg-white" method="post">
-                            <input class="w-75" type="text" id="kwd" name="kwd" placeholder="Hôm nay bạn cần tìm gì?" />
+                            <input class="w-75" type="text" id="kwd" name="kwd"
+                                placeholder="Hôm nay bạn cần tìm gì?" />
                             <button type="submit" class="search">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -291,7 +306,8 @@
                         </a>
                     </div>
                     <div class="cart">
-                        <a href="phonecontent/shoppingCart" class="d-flex justify-content-center align-items-center text-decoration-none">
+                        <a href="phonecontent/shoppingCart"
+                            class="d-flex justify-content-center align-items-center text-decoration-none">
                             <i class="fa fa-cart-arrow-down"></i>
                             <i class="fa fa-caret-left icon"></i>
                             <div class="text-white d-flex justify-content-center align-items-center">
@@ -379,13 +395,13 @@
                     </div> -->
 
                     <div class="content d-flex mt-4">
-                        <?php $count = 0 ?>
-                        @foreach($icon as $icons)
-                        <a href="#" id="header_nav_hover{{$count++}}">
-                            <span><i class="{{$icons->name_icon}}"></i></span>
-                            <span>{{$icons->name_icon_product}}</span>
-                            <label></label>
-                        </a>
+                        <?php $count = 0; ?>
+                        @foreach ($icon as $icons)
+                            <a href="#" id="header_nav_hover{{ $count++ }}">
+                                <span><i class="{{ $icons->name_icon }}"></i></span>
+                                <span>{{ $icons->name_icon_product }}</span>
+                                <label></label>
+                            </a>
                         @endforeach
                     </div>
 
@@ -402,22 +418,22 @@
                                         <th>MỨC GIÁ</th>
                                         <th>QUAN TÂM NHẤT</th>
                                     </thead>
-                                    @foreach($phone as $phoness)
-                                    <tfoot>
-                                        <tr>
-                                            <td>{{ $phoness->phone1 }}</td>
-                                            <td>{{ $phoness->phone2 }}</td>
-                                            <td>{{ $phoness->phone3 }}</td>
-                                            <td>{{ $phoness->price }}</td>
-                                            <td>{{ $phoness->care }}</td>
-                                        </tr>
-                                    </tfoot>
+                                    @foreach ($phone as $phoness)
+                                        <tfoot>
+                                            <tr>
+                                                <td>{{ $phoness->phone1 }}</td>
+                                                <td>{{ $phoness->phone2 }}</td>
+                                                <td>{{ $phoness->phone3 }}</td>
+                                                <td>{{ $phoness->price }}</td>
+                                                <td>{{ $phoness->care }}</td>
+                                            </tr>
+                                        </tfoot>
                                     @endforeach
                                 </table>
 
                             </div>
                             <div class="hover_img col-4">
-                                <img class="w-100 h-100" src="{{asset('images/GALAY A73 5G.png')}}" alt="logo" />
+                                <img class="w-100 h-100" src="{{ asset('images/GALAY A73 5G.png') }}" alt="logo" />
                             </div>
                         </div>
                     </div>
@@ -817,10 +833,10 @@
         <div class="container mt-4 slideshow">
             <div class="slideshow-container">
                 <!-- Full-width images with number and caption text -->
-                @foreach($slide as $slides)
-                <div class="mySlides">
-                    <img class="w-100" src="{{ asset('images/top-slider/'.$slides->slide_image) }}" />
-                </div>
+                @foreach ($slide as $slides)
+                    <div class="mySlides">
+                        <img class="w-100" src="{{ asset('images/top-slider/' . $slides->slide_image) }}" />
+                    </div>
                 @endforeach
 
                 <!-- Next and previous buttons -->
@@ -859,12 +875,12 @@
     <section>
         <div class="container galaxy padding-content mt-5">
             <div class="quick-sales mt-4 mb-5 d-flex">
-                @foreach($banner as $banners)
-                <div class="item">
-                    <a href="#">
-                        <img src="{{ asset('images/'.$banners->banner_image) }}" />
-                    </a>
-                </div>
+                @foreach ($banner as $banners)
+                    <div class="item">
+                        <a href="#">
+                            <img src="{{ asset('images/' . $banners->banner_image) }}" />
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -897,7 +913,8 @@
     <section>
         <div class="container padding-content">
             <a href="#">
-                <img class="w-100" src="{{asset('images/Samsung Galaxy A52s.png')}}" title="Chuyên trang Samsung" alt="chuyen-trang-samsung2" />
+                <img class="w-100" src="{{ asset('images/Samsung Galaxy A52s.png') }}"
+                    title="Chuyên trang Samsung" alt="chuyen-trang-samsung2" />
             </a>
         </div>
     </section>
@@ -918,10 +935,10 @@
 
                 <div class="item pb-2 border border-1" id="item1">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
-                        <img class="giasoc" src="{{asset('images/gia-soc.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
+                        <img class="giasoc" src="{{ asset('images/gia-soc.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/image-removebg-preview-5.png')}}" />
+                            <img src="{{ asset('images/box-home/image-removebg-preview-5.png') }}" />
                         </a>
                         <div class="flash">
                             <i class="fa-solid fa-bolt"></i>giảm 8,000,000 <u>đ</u>
@@ -970,9 +987,9 @@
 
                 <div class="item pb-2 border border-1" id="item2">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/image-removebg-preview.png')}}" />
+                            <img src="{{ asset('images/box-home/image-removebg-preview.png') }}" />
                         </a>
                     </div>
                     <div class="text-center money mt-3">
@@ -1019,10 +1036,10 @@
 
                 <div class="item item1 pb-2 border border-1" id="item3">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
-                        <img class="giasoc" src="{{asset('images/gia-soc.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
+                        <img class="giasoc" src="{{ asset('images/gia-soc.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/macmoi256.png')}}" />
+                            <img src="{{ asset('images/box-home/macmoi256.png') }}" />
                         </a>
                         <div class="flash">
                             <i class="fa-solid fa-bolt"></i>giảm 5,000,000 <u>đ</u>
@@ -1072,9 +1089,9 @@
 
                 <div class="item item1 pb-2 border border-1" id="item4">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/image-removebg-preview-4.png')}}" />
+                            <img src="{{ asset('images/box-home/image-removebg-preview-4.png') }}" />
                         </a>
                     </div>
                     <div class="text-center money mt-3">
@@ -1119,9 +1136,9 @@
 
                 <div class="item item1 pb-2 border border-1" id="item5">
                     <div>
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/image-removebg-preview-4.png')}}" />
+                            <img src="{{ asset('images/box-home/image-removebg-preview-4.png') }}" />
                         </a>
                     </div>
                     <div class="text-center money mt-3">
@@ -1169,10 +1186,10 @@
 
                 <div class="item pb-2 border border-1" id="item6">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
-                        <img class="giasoc" src="{{asset('images/gia-soc.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
+                        <img class="giasoc" src="{{ asset('images/gia-soc.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/image-removebg-preview-5.png')}}" />
+                            <img src="{{ asset('images/box-home/image-removebg-preview-5.png') }}" />
                         </a>
                         <div class="flash">
                             <i class="fa-solid fa-bolt"></i>giảm 8,300,000 <u>đ</u>
@@ -1221,10 +1238,10 @@
 
                 <div class="item pb-2 border border-1" id="item7">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
-                        <img class="giasoc" src="{{asset('images/gia-soc.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
+                        <img class="giasoc" src="{{ asset('images/gia-soc.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/image-removebg-preview-2.png')}}" />
+                            <img src="{{ asset('images/box-home/image-removebg-preview-2.png') }}" />
                         </a>
                     </div>
                     <div class="text-center money mt-3">
@@ -1270,9 +1287,9 @@
 
                 <div class="item pb-2 border border-1" id="item8">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />>
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />>
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/image-removebg-preview-3.png')}}" />
+                            <img src="{{ asset('images/box-home/image-removebg-preview-3.png') }}" />
                         </a>
                         <div class="flash">
                             <i class="fa-solid fa-bolt"></i>giảm 3,740,000 <u>đ</u>
@@ -1322,10 +1339,10 @@
 
                 <div class="item pb-2 border border-1" id="item9">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
-                        <img class="giasoc" src="{{asset('images/gia-soc.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
+                        <img class="giasoc" src="{{ asset('images/gia-soc.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/Tai nghe Apple AirPods Pro.png')}}" />
+                            <img src="{{ asset('images/box-home/Tai nghe Apple AirPods Pro.png') }}" />
                         </a>
                         </a>
                         <div class="flash">
@@ -1374,9 +1391,9 @@
 
                 <div class="item pb-2 border border-1" id="item10">
                     <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
+                        <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
                         <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{asset('images/box-home/image-removebg-preview-28.png')}}" />
+                            <img src="{{ asset('images/box-home/image-removebg-preview-28.png') }}" />
                         </a>
                     </div>
                     <div class="text-center money mt-3">
@@ -1421,63 +1438,70 @@
             </div> -->
 
             <div class="d-flex box-home mt-2 flex-wrap">
-                <?php $count = 1 ?>
-                @foreach($homeproduct as $data)
-                <div class="item pb-2 border border-1 mt-3" id="item{{$count++}}" style="width:19%; margin-right: 12px;">
-                    <div class="img mt-1">
-                        <img class="img_apple" src="{{asset('images/box-home/apple.png')}}" />
-                        <img class="giasoc" src="{{ asset('images/'.$data->image_sale) }}">
+                <?php $count = 1;
+                $m = 1; ?>
+                @foreach ($homeproduct as $data)
+                    <div class="item pb-2 border border-1 mt-3" id="item{{ $count++ }}"
+                        style="width:19%; margin-right: 12px;">
+                        <div class="img mt-1">
+                            <img class="img_apple" src="{{ asset('images/box-home/apple.png') }}" />
+                            <img class="giasoc" src="{{ asset('images/' . $data->image_sale) }}">
 
-                        <a href="#" class="d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('images/'.$data->image_product) }}">
-                        </a>
-                        <div class="flash">
-                            <i class="fa-solid fa-bolt"></i>giảm {{$data->image_sale_price}}<u>đ</u>
+                            <a href="#" class="d-flex justify-content-center align-items-center">
+                                <img src="{{ asset('images/' . $data->image_product) }}">
+                            </a>
+                            <div class="flash">
+                                <i class="fa-solid fa-bolt"></i>giảm {{ $data->image_sale_price }}<u>đ</u>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="text-center money mt-3">
-                        <strong>{{$data->name_product}}</strong>
-                        <div>
-                            <span><strong>{{$data->price}}<u>đ</u></strong></span>
-                            <del>{{$data->sale}}<u>đ</u></del>
+                        <div class="text-center money mt-3">
+                            <strong>{{ $data->name_product }}</strong>
+                            <div>
+                                <span><strong>{{ $data->price }}<u>đ</u></strong></span>
+                                <del>{{ $data->sale }}<u>đ</u></del>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="note note1">
-                        <label title="Giảm thêm 250.000đ khi thanh toán qua VNPAY (từ ngày 18/04 - 30/04 - số lượng có hạn)">
-                            <span>KM</span>
-                            {{$data->discount}}
-                            <strong>{{$data->other}}</strong>
-                        </label>
-                    </div>
-
-                    <div class="attention" id="attention1">
-                        <div class="content">
-                            <label>
+                        <div class="note note1">
+                            <label
+                                title="Giảm thêm 250.000đ khi thanh toán qua VNPAY (từ ngày 18/04 - 30/04 - số lượng có hạn)">
                                 <span>KM</span>
-                                Giảm thêm 250.000 khi thanh toán qua VNPAY-số lượng có hạn
-                            </label>
-                            <label>
-                                <span>KM</span>
-                                Khuyến mại, thu cũ - lên đời iphone 13 Series
-                            </label>
-                            <label>
-                                <span>KM</span>
-                                Tặng sim data mobifone Hera 5G (2.5G/ngày) (chưa bao gồm tháng đầu tiên)- lưu ý chỉ mua trực tiếp tại
-                                cửa hàng, không áp dụng shop SIS Hà Nội
-                            </label>
-                            <label>
-                                <span>KM</span>
-                                Mua kèm củ sạc nhanh Innostyle chính hãng với 290.000đ
-                            </label>
-                            <label>
-                                <span>KM</span>
-                                Tặng sim data Heraplus ưu đãi 6GB/ngày(chưa bao gồm tháng đầu tiên) áp dụng khi mua hàng online
+                                {{ $data->discount }}
+                                <strong>{{ $data->other }}</strong>
                             </label>
                         </div>
+
+                        <div class="attention" id="attention{{ $m++ }}">
+                            <a class="text-black" href="{{ route('apple.index', $data->home_product_id) }}">
+                                <div class="content">
+                                    <label>
+                                        <span>KM</span>
+                                        Giảm thêm 250.000 khi thanh toán qua VNPAY-số lượng có hạn
+                                    </label>
+                                    <label>
+                                        <span>KM</span>
+                                        Khuyến mại, thu cũ - lên đời iphone 13 Series
+                                    </label>
+                                    <label>
+                                        <span>KM</span>
+                                        Tặng sim data mobifone Hera 5G (2.5G/ngày) (chưa bao gồm tháng đầu tiên)- lưu ý
+                                        chỉ mua trực tiếp tại
+                                        cửa hàng, không áp dụng shop SIS Hà Nội
+                                    </label>
+                                    <label>
+                                        <span>KM</span>
+                                        Mua kèm củ sạc nhanh Innostyle chính hãng với 290.000đ
+                                    </label>
+                                    <label>
+                                        <span>KM</span>
+                                        Tặng sim data Heraplus ưu đãi 6GB/ngày(chưa bao gồm tháng đầu tiên) áp dụng khi
+                                        mua hàng online
+                                    </label>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -1487,7 +1511,7 @@
     <!-- hotsale -->
     <section>
         <div class="container padding-content mb-3">
-            <img class="w-100" src="{{asset('images/hotsale-samsung-a33-a53-5g-1200x200.jpg')}}" />
+            <img class="w-100" src="{{ asset('images/hotsale-samsung-a33-a53-5g-1200x200.jpg') }}" />
         </div>
     </section>
     <!--end hotsale -->
@@ -1503,19 +1527,19 @@
                 </div>
             </div>
             <div class="like d-flex">
-                @foreach($like as $likes)
-                <div class="item border border-1" style="width:19%; margin-right: 12px;">
-                    <div class="d-flex justify-content-center">
-                        <img class="img2" src="{{ asset('images/like/'.$likes->like_images) }}" />
-                    </div>
-                    <div class="mt-3 mb-3 text-center money">
-                        <strong>{{$likes->name_like}}</strong>
-                        <div class="item1">
-                            <strong>{{$likes->like_price}} <u>đ</u></strong>
-                            <del>{{$likes->like_sale}} <u>đ</u></del>
+                @foreach ($like as $likes)
+                    <div class="item border border-1" style="width:19%; margin-right: 12px;">
+                        <div class="d-flex justify-content-center">
+                            <img class="img2" src="{{ asset('images/like/' . $likes->like_images) }}" />
+                        </div>
+                        <div class="mt-3 mb-3 text-center money">
+                            <strong>{{ $likes->name_like }}</strong>
+                            <div class="item1">
+                                <strong>{{ $likes->like_price }} <u>đ</u></strong>
+                                <del>{{ $likes->like_sale }} <u>đ</u></del>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -1534,59 +1558,67 @@
             </div>
             <div class="d-flex mt-3 phone_context flex-wrap">
                 <?php $count = 1;
-                $n = 1 ; $m = 0?>
-                @foreach($telephone as $data)
-                <div class="item border border-1 mt-2" id="telephone{{$count++}}" style="width:19%; margin-right: 12px;">
-                    <div class="img d-flex flex-column justify-content-center mt-4">
-                        <div class="d-flex justify-content-center">
-                            <img src="{{ asset('images/phone_noibat/'.$data->image_telephone) }}" />
-                        </div>
-                        <div class="sale d-flex flex-column justify-content-center align-items-center">
-                            <span class="text-white">{{ $data->hot_sale}} </span>
-                            <span>{{ $data->price_only }} </span>
-                        </div>
-                    </div>
-                    <div class="text-center money mt-3">
-                        <strong style="margin-left: 10px;margin-right:10px">{{ $data->name_telephone }} </strong>
-                        <div>
-                            <strong>{{ $data->price_telephone }} <u>đ</u></strong>
-                            <del>{{ $data->sale_telephone }} <u>đ</u></del>
-                        </div>
-                    </div>
-                    <div class="note mt-2 mb-3">
-                        <label title="Giảm thêm 250.000đ khi thanh toán qua VNPAY (từ ngày 18/04 - 30/04 - số lượng có hạn)">
-                            <span>KM</span>
-                            {{ $data->discount }} <strong>{{ $data->other}} </strong>
-                        </label>
-                    </div>
-                    <div class="attention" id="phone{{$n++}}">
-                        <a href="{{route('phonecontent.phone'.$m++)}}">
-                            <div class="content">
-                                <label>
-                                    <span>KM</span>
-                                    Giảm thêm 250.000 khi thanh toán qua VNPAY-số lượng có hạn
-                                </label>
-                                <label>
-                                    <span>KM</span>
-                                    Khuyến mại, thu cũ - lên đời iphone 13 Series
-                                </label>
-                                <label>
-                                    <span>KM</span>
-                                    Tặng sim data mobifone Hera 5G (2.5G/ngày) (chưa bao gồm tháng đầu tiên)- lưu ý chỉ mua trực tiếp tại
-                                    cửa hàng, không áp dụng shop SIS Hà Nội
-                                </label>
-                                <label>
-                                    <span>KM</span>
-                                    Mua kèm củ sạc nhanh Innostyle chính hãng với 290.000đ
-                                </label>
-                                <label>
-                                    <span>KM</span>
-                                    Tặng sim data Heraplus ưu đãi 6GB/ngày(chưa bao gồm tháng đầu tiên) áp dụng khi mua hàng online
-                                </label>
+                $n = 1;
+                $m = 0; ?>
+                @foreach ($telephone as $data)
+                    <div class="item border border-1 mt-2" id="telephone{{ $count++ }}"
+                        style="width:19%; margin-right: 12px;">
+                        <div class="img d-flex flex-column justify-content-center mt-4">
+                            <div class="d-flex justify-content-center">
+                                <img src="{{ asset('images/phone_noibat/' . $data->image_telephone) }}" />
                             </div>
-                        </a>
+                            <div class="sale d-flex flex-column justify-content-center align-items-center">
+                                <span class="text-white">{{ $data->hot_sale }} </span>
+                                <span>{{ $data->price_only }} </span>
+                            </div>
+                        </div>
+
+                        <div class="text-center money mt-3">
+                            <strong style="margin-left: 10px;margin-right:10px">{{ $data->name_telephone }} </strong>
+                            <div>
+                                <strong>{{ $data->price_telephone }} <u>đ</u></strong>
+                                <del>{{ $data->sale_telephone }} <u>đ</u></del>
+                            </div>
+                        </div>
+
+                        <div class="note mt-2 mb-3">
+                            <label
+                                title="Giảm thêm 250.000đ khi thanh toán qua VNPAY (từ ngày 18/04 - 30/04 - số lượng có hạn)">
+                                <span>KM</span>
+                                {{ $data->discount }} <strong>{{ $data->other }} </strong>
+                            </label>
+                        </div>
+
+                        <div class="attention" id="phone{{ $n++ }}">
+                            <a class="text-black" href="{{ route('phonecontent.phone.new', ['id' => $data->id]) }}">
+                                <div class="content">
+                                    <label>
+                                        <span>KM</span>
+                                        Giảm thêm 250.000 khi thanh toán qua VNPAY-số lượng có hạn
+                                    </label>
+                                    <label>
+                                        <span>KM</span>
+                                        Khuyến mại, thu cũ - lên đời iphone 13 Series
+                                    </label>
+                                    <label>
+                                        <span>KM</span>
+                                        Tặng sim data mobifone Hera 5G (2.5G/ngày) (chưa bao gồm tháng đầu tiên)- lưu ý
+                                        chỉ mua trực tiếp tại
+                                        cửa hàng, không áp dụng shop SIS Hà Nội
+                                    </label>
+                                    <label>
+                                        <span>KM</span>
+                                        Mua kèm củ sạc nhanh Innostyle chính hãng với 290.000đ
+                                    </label>
+                                    <label>
+                                        <span>KM</span>
+                                        Tặng sim data Heraplus ưu đãi 6GB/ngày(chưa bao gồm tháng đầu tiên) áp dụng khi
+                                        mua hàng online
+                                    </label>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -1605,27 +1637,28 @@
             </div>
             <div class="mt-3 border border-1 watch_context swiper mySwiper">
                 <div class="content d-flex swiper-wrapper">
-                    @foreach($watch as $watchs)
-                    <div class="item_watch swiper-slide">
-                        <div class="img d-flex flex-column justify-content-center mt-4">
-                            <div class="d-flex justify-content-center">
-                                <img src="{{ asset('images/watch/'.$watchs->watch_images) }}" />
+                    @foreach ($watch as $watchs)
+                        <div class="item_watch swiper-slide">
+                            <div class="img d-flex flex-column justify-content-center mt-4">
+                                <div class="d-flex justify-content-center">
+                                    <img src="{{ asset('images/watch/' . $watchs->watch_images) }}" />
+                                </div>
+                            </div>
+                            <div class="text-center money mt-3">
+                                <strong>{{ $watchs->name_watch }}</strong>
+                                <div>
+                                    <strong>{{ $watchs->watch_price }} <u>đ</u></strong>
+                                    <del>{{ $watchs->watch_sale }} <u>đ</u></del>
+                                </div>
+                            </div>
+                            <div class="note mt-2 mb-3">
+                                <label
+                                    title="Giảm thêm 250.000đ khi thanh toán qua VNPAY (từ ngày 18/04 - 30/04 - số lượng có hạn)">
+                                    <span>KM</span>
+                                    {{ $watchs->discount }}<strong>VÀ 2 KM KHÁC</strong>
+                                </label>
                             </div>
                         </div>
-                        <div class="text-center money mt-3">
-                            <strong>{{$watchs->name_watch}}</strong>
-                            <div>
-                                <strong>{{$watchs->watch_price}} <u>đ</u></strong>
-                                <del>{{$watchs->watch_sale}} <u>đ</u></del>
-                            </div>
-                        </div>
-                        <div class="note mt-2 mb-3">
-                            <label title="Giảm thêm 250.000đ khi thanh toán qua VNPAY (từ ngày 18/04 - 30/04 - số lượng có hạn)">
-                                <span>KM</span>
-                                {{$watchs->discount}}<strong>VÀ 2 KM KHÁC</strong>
-                            </label>
-                        </div>
-                    </div>
                     @endforeach
 
                 </div>
@@ -1648,23 +1681,23 @@
             </div>
             <div class="accessory">
                 <ul class="d-flex">
-                    @foreach($accessory as $accessorys)
-                    <li>
-                        <a href="">
-                            <span><img src="{{asset('images/phukien/'.$accessorys->name_accessory)}}" /></span>
-                            <label>{{$accessorys->name_accessory_product}}</label>
-                        </a>
-                    </li>
+                    @foreach ($accessory as $accessorys)
+                        <li>
+                            <a href="">
+                                <span><img src="{{ asset('images/phukien/' . $accessorys->name_accessory) }}" /></span>
+                                <label>{{ $accessorys->name_accessory_product }}</label>
+                            </a>
+                        </li>
                     @endforeach
                 </ul>
                 <ul class="d-flex">
-                    @foreach($accessory as $accessorys)
-                    <li>
-                        <a href="">
-                            <span><img src="{{asset('images/phukien/'.$accessorys->name_accessory)}}" /></span>
-                            <label>{{$accessorys->name_accessory_product}}</label>
-                        </a>
-                    </li>
+                    @foreach ($accessory as $accessorys)
+                        <li>
+                            <a href="">
+                                <span><img src="{{ asset('images/phukien/' . $accessorys->name_accessory) }}" /></span>
+                                <label>{{ $accessorys->name_accessory_product }}</label>
+                            </a>
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -1684,13 +1717,14 @@
             </div>
             <div class="technology">
                 <div class="d-flex">
-                    @foreach($technology as $technologys)
-                    <div class="border border-1 item">
-                        <div class="d-flex">
-                            <img style="width: 100px; height: 70px;" src="{{ asset('images/phukien/'.$technologys->name_technology) }}" />
-                            <strong>{{$technologys->name_technology_product}}</strong>
+                    @foreach ($technology as $technologys)
+                        <div class="border border-1 item">
+                            <div class="d-flex">
+                                <img style="width: 100px; height: 70px;"
+                                    src="{{ asset('images/phukien/' . $technologys->name_technology) }}" />
+                                <strong>{{ $technologys->name_technology_product }}</strong>
+                            </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
@@ -1732,7 +1766,7 @@
                 </div>
             </div>
             <div class="content d-flex align-items-center justify-content-center text-center">
-                <img class="img" src="{{asset('images/phukien/sub-logo.png')}}" />
+                <img class="img" src="{{ asset('images/phukien/sub-logo.png') }}" />
                 <div class="text">
                     <strong>Đăng ký nhận tin</strong>
                     <span class="d-block">Đăng ký để nhận những chương trình khuyến mại hot nhất của Hoàng
@@ -1788,18 +1822,21 @@
                             <h6>Thanh toán miễn phí</h6>
                             <div>
                                 <div class="d-flex img1">
-                                    <img style="margin-right:5px" src="{{asset('images/footer/logo-visa.png')}}" />
-                                    <img src="{{asset('images/footer/logo-master.png')}}" />
+                                    <img style="margin-right:5px" src="{{ asset('images/footer/logo-visa.png') }}" />
+                                    <img src="{{ asset('images/footer/logo-master.png') }}" />
                                 </div>
 
                                 <div class="d-flex img2">
-                                    <img style="margin-right:5px" class="mt-2" src="{{asset('images/footer/logo-jcb.png')}}" />
-                                    <img class="mt-2" src="{{asset('images/footer/logo-samsungpay.png')}}" />
+                                    <img style="margin-right:5px" class="mt-2"
+                                        src="{{ asset('images/footer/logo-jcb.png') }}" />
+                                    <img class="mt-2"
+                                        src="{{ asset('images/footer/logo-samsungpay.png') }}" />
                                 </div>
 
                                 <div class="d-flex img3">
-                                    <img style="margin-right:5px" class="mt-2" src="{{asset('images/footer/logo-atm.png')}}" />
-                                    <img class="mt-2" src="{{asset('images/footer/logo-vnpay.png')}}" />
+                                    <img style="margin-right:5px" class="mt-2"
+                                        src="{{ asset('images/footer/logo-atm.png') }}" />
+                                    <img class="mt-2" src="{{ asset('images/footer/logo-vnpay.png') }}" />
                                 </div>
                             </div>
                         </div>
@@ -1807,10 +1844,10 @@
                             <h6>Hình thức vận chuyển</h6>
                             <div class="img4">
                                 <div>
-                                    <img src="{{asset('images/footer/nhattin.jpg')}}" />
-                                    <img src="{{asset('images/footer/vnpost.jpg')}}" />
+                                    <img src="{{ asset('images/footer/nhattin.jpg') }}" />
+                                    <img src="{{ asset('images/footer/vnpost.jpg') }}" />
                                 </div>
-                                <img class="mt-2" src="{{asset('images/footer/logo-bct.png')}}" />
+                                <img class="mt-2" src="{{ asset('images/footer/logo-bct.png') }}" />
                             </div>
                         </div>
                     </div>
@@ -1830,13 +1867,13 @@
     </footer>
     <!--end Thông tin, địa chỉ -->
 
-    <script type="text/javascript" src="{{URL::asset('assets/js/top_slide.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('assets/js/hover_phone.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('assets/js/flashSale_hour.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('assets/js/hover.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('assets/js/hover_sale.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('assets/js/top_slide.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('assets/js/phone.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/top_slide.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/hover_phone.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/flashSale_hour.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/hover.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/hover_sale.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/top_slide.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/js/phone.js') }}"></script>
 
     <!-- Initialize Swiper -->
     <script>

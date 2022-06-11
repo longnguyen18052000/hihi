@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phone_content phone 1</title>
+    <title>Phone_content phone 0</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -19,6 +19,8 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/c93a607241.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="<?php echo asset('assets/css/phonecontent/shoppingCart.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('assets/css/phonecontent/phone0.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('assets/css/index.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('assets/css/login.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('assets/css/wed_responsive.css'); ?>" type="text/css">
@@ -105,15 +107,17 @@
                 <div class="image">
                     <div class="d-flex flex-column item align-items-center">
                         <img class="w-75"
-                            src="{{ asset('images/phone_noibat/image-removebg-preview_637850265770319467.png') }}">
-                        <span><strong>Samsung Galaxy A23 4GB/128GB - Chính hãng</strong></span>
+                            src="{{ asset('images/box-home/' . $apple[0]->image_product) }}" alt="apple">
+                        <span><strong>{{ $apple[0]->name_product }}</strong></span>
                         <span style="color: #aaa;"><strong>Đen</strong></span>
                         <div class="mt-2 mb-2">
                             <i class="fa-solid fa-bolt-lightning button_i"></i>
-                            <strong class="button_price">4,850,000 ₫</strong>
-                            <del>6,850,000 ₫</del>
+                            <strong class="button_price">{{ $apple[0]->price }}</strong>
+                            <del>{{ $apple[0]->sale }}</del>
                         </div>
+
                         <div class="content mb-3">
+
                             <div class="sale mt-3">
                                 <label>KM1</label>
                                 <div class="border border-1 mt-2 p-2">
@@ -163,6 +167,15 @@
                                     <span>Tặng 01 tháng cước thuê bao K+ App khi mua 2 tháng (Giá chỉ từ 53.000đ)</span>
                                 </div>
                             </div>
+
+                            <div class="mt-3 text-center hotline">
+                                <button class="w-25 p-2 mb-3 border border-none">
+                                    <i class="fa-solid fa-headphones text-white"></i>
+                                    <span>1900.2091</span>
+                                </button>
+                                <p><i>Phím 1 - Hotline bán hàng online</i></p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -197,61 +210,85 @@
                     </div>
                     <span>Số lượng</span>
                     <div class="mt-2 amount">
-                        <button class="border border-1">-</button>
-                        <input type="text" value="1">
-                        <button class="border border-1">+</button>
+                        <button>-</button>
+                        <input class="text-center" type="text" value="1">
+                        <button>+</button>
                     </div>
+
                     <div class="mt-3 btn-submit">
-                        <form action="">
+                        <form
+                        {{-- action="{{ route('phonecontent_product.phone0', ['id' => $manager[0]->id]) }}" --}}
+                        enctype="multipart/form-data" method="post">
+                            @csrf
                             <div>
                                 <label><strong>Họ tên</strong></label>
-                                <input type="text" name="username" style="outline: none"
+                                <input type="text" name="username" style="background: #e5e5e5; border-radius: 10px"
                                     class="w-100 border border-1 p-3" placeholder="Nhập họ và tên*" required>
                             </div>
-                            <div class="d-flex row mt-3 mb-3">
-                                <div class="phone col-6">
+
+                            <div class="d-flex justify-content-between mt-3 mb-3">
+                                <div style="width: 49%">
                                     <label class="d-block"><strong>Số điện thoại</strong></label>
-                                    <input type="number" class="w-100 p-3 border border-1" name="phone"
-                                        placeholder="Nhập họ và tên" required>
+                                    <input type="number" class="w-100 p-3 border border-1" name="phone" style="background: #e5e5e5; border-radius: 10px"
+                                        placeholder="số điện thoại*" required>
                                 </div>
 
-                                <div class="col-6">
+                                <div style="width: 49%">
                                     <label class="d-block"><strong>Email</strong></label>
-                                    <input type="email" class="w-100 p-3 border border-1" name="email"
-                                        placeholder="Nhập họ và tên" required>
+                                    <input type="email" class="w-100 p-3 border border-1" name="email" style="background: #e5e5e5; border-radius: 10px"
+                                        placeholder="Nhập emai*" required>
                                 </div>
                             </div>
-                            <span><strong>Hình thức nhận hàng</strong></span>
-                            <div class="mt-3 row">
-                                <div class="col-6">
-                                    <span><strong>Nhận hàng tại nhà</strong></span>
-                                    <div>
-                                        <input type="text" class="w-100 p-3 border border-1" name="home_delevety">
+
+                            <div>
+                                <span><strong>Hình thức nhận hàng</strong></span>
+                                <div class="d-flex justify-content-between w-100 nhanhang mb-3">
+                                    <div class="d-flex align-items-center border border-1">
+                                        <i id="nhanhang1" class="fa-solid fa-circle-dot"></i>
+                                        <span><strong>Nhận hàng tại nhà</strong></span>
+                                    </div>
+                                    <div class="f-flex align-items-center border border-1">
+                                        <i id="nhanhang2" class="fa-solid fa-circle-dot"></i>
+                                        <span><strong>Nhận hàng tại của hàng</strong></span>
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <span><strong>Nhận hàng tại của hàng</strong></span>
+                            </div>
 
+                            <div style="display: block">
+                                <span><strong>Địa chỉ</strong></span>
+                                <div>
+                                    <div class="d-flex justify-content-between">
+                                        <select name="city" required style="width: 49%">
+                                            <option>Hà nội</option>
+                                            <option>TP Hồ Chí Minh</option>
+                                            <option>Thái BÌnh</option>
+                                            <option>Nam Định</option>
+                                        </select>
+                                        <select name="district" required style="width: 49%">
+                                            <option>Quận/Huyện</option>
+                                            <option>Ba Đình</option>
+                                            <option>Hoàn Kiếm</option>
+                                            <option>Tây Hồ</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <span></span>
-                            <span>Địa chỉ</span>
-                            <div>
-                                <div class="d-flex">
-                                    <select>
-                                        <option value="">Hà nội</option>
-                                        <option value="">TP Hồ Chí Minh</option>
-                                        <option value="">Thái BÌnh</option>
-                                        <option value="">Nam Định</option>
-                                    </select>
-                                    <select>
-                                        <option value="">Quận/Huyện</option>
-                                        <option value="">Ba Đình</option>
-                                        <option value="">Hoàn Kiếm</option>
-                                        <option value="">Tây Hồ</option>
-                                    </select>
-                                </div>
+
+                            <input type="text" id="address" name="address" class="w-100 mt-2 p-3 border border-none" style="background: #e5e5e5; border-radius: 10px" placeholder="Địa chỉ nhận hàng">
+
+                            <textarea class="w-100 p-3 mt-2 mb-3" rows="4" name="note" placeholder="Ghi chú"></textarea>
+
+                            <div class="w-100 text-center">
+                                <p><i>Bằng cách đặt hàng bạn đã đồng ý với điều khoản sử dụng và chính sách đổi trả</i>
+                                </p>
                             </div>
+
+                            <div class="mt-4 w-100 text-center">
+                                <button class="text-white pt-3 pb-2">
+                                    <h6><strong>TIẾN HÀNH ĐẶT HÀNG</strong></h6>
+                                </button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
@@ -805,13 +842,14 @@
             <strong>Điện thoại</strong> >
             <strong>Xiaomi</strong> >
             <strong>Redmi Note 10</strong> >
-            <strong style="color:#009981">{{ $manager[1]->name_shopping_phone }}</strong>
+            <strong style="color:#009981">{{ $apple[0]->name_product }}</strong>
         </div>
     </section>
+
     <section>
         <div class="container mt-3 d-flex flash_phone">
             <i class="fa-solid fa-bolt-lightning" style="margin-right: 10px"></i>
-            <strong>Điện thoại di động {{ $manager[1]->name_shopping_phone }}</strong>
+            <strong>Điện thoại di động {{ $apple[0]->name_product }}</strong>
             <div class="mb-3 hour_phone" style="margin-left:20px">
                 <strong class="bg-black text-white" id="first-hour"></strong>
                 <strong class="bg-black text-white" id="last-hour"></strong>
@@ -826,35 +864,33 @@
     </section>
 
     <section>
-        @yield('phone0')
         <div class="container mt-3 d-flex" style="padding-left: 35px; padding-right:45px">
-
             <div style="display: flex; flex-direction: column; align-items: center; width: 35%; margin-right:20px">
                 <img class="w-75"
-                    src="{{ asset('images/phone_noibat/' . $manager[1]->image_shopping_phone) }}">
+                    src="{{ asset('images/box-home/' . $apple[0]->image_product) }}" alt="apple">
                 <div class="mt-3 d-flex align-items-center w-100 border border-1 justify-content-center">
                     <div class="border borrder-1 m-2">
                         <img style="height: 85px;" class="p-2"
-                            src="{{ asset('images/phone_noibat/image-removebg-preview-3.png') }}">
+                        src="{{ asset('images/box-home/' . $apple[0]->image_product) }}" alt="apple">
                     </div>
                     <div class="border border-1 m-2">
                         <img style="height: 85px;" class="p-2"
-                            src="{{ asset('images/phone_noibat/image-removebg-preview-3.png') }}">
+                        src="{{ asset('images/box-home/' . $apple[0]->image_product) }}" alt="apple">
                     </div>
                     <div class="border border-1 m-2">
                         <img style="height: 85px;" class="p-2"
-                            src="{{ asset('images/phone_noibat/image-removebg-preview-3.png') }}">
+                        src="{{ asset('images/box-home/' . $apple[0]->image_product) }}" alt="apple">
                     </div>
                 </div>
             </div>
 
             <div style="width: 45%; margin-right:20px" class="mb-5">
                 <div>
-                    <h4 class="d-inline"><strong
-                            style="color: #FD475A">{{ $manager[1]->price_shopping_phone }}
+                    <h4 class="d-inline"><strong style="color: #FD475A">
+                            {{ $apple[0]->price }}
                             <u>đ</u></strong></h4>
                     <del
-                        style="margin-left:10px; margin-right:5px; padding-right:10px; border-right: 2px solid #A7A9AC"><em>{{ $manager[1]->sale_shopping_phone }}
+                        style="margin-left:10px; margin-right:5px; padding-right:10px; border-right: 2px solid #A7A9AC"><em>{{ $apple[0]->sale }}
                             <u>đ</u></em></del>
                     <em>Giá đã bao gồm 10% VAT</em>
                 </div>
@@ -904,27 +940,34 @@
                 <div class="mt-3 discount">
                     <label>
                         <span>KM 6</span>
-                        Tặng 01 tháng cước thuê bao K+ App khi mua 2 tháng (Giá chỉ từ 53.000đ) - (
+                        Tặng 01 tháng cước thuê bao K+ App khi mua 2 tháng (Giá chỉ từ 53.000đ) -
                         <strong>(Xem chi tiết)</strong>
                     </label>
                 </div>
 
-                <div class="mt-3 w-100 discount d-flex">
+                <div class="mt-3 w-100 discount d-flex justify-content-between">
                     <a class="btn-red pt-1 pb-1 btn"
                         onclick="document.getElementById('button_phone').style.display='block'">
                         <strong class="d-block">MUA NGAY</strong>
                         <span>Giao tận nhà (COD) hoặc nhận tại cửa hàng</span>
                     </a>
 
-                    <a class="btn-orange" href="{{ route('shoppingCart') }}">
-                        <i class="fa fa-cart-arrow-down text-white"></i>
-                    </a>
-                </div>
+                    <form class="btn-orange"
+                        action="{{ route('shoppingApple.apple0', ['home_product_id' => $apple[0]->home_product_id]) }}"
+                        method="post">
+                        @csrf
+                        <button>
+                            <i class="fa fa-cart-arrow-down text-white"></i>
+                        </button>
+                    </form>
 
+                </div>
+                {{-- @if(session('success'))
+                <p class="alert alert-info">{{session('success')}}</p>
+                @endif --}}
             </div>
 
             <div style="width: 20%">
-
             </div>
         </div>
     </section>
@@ -952,7 +995,7 @@
                             </div>
 
                             <div>
-                                <textarea name="comment" class="w-100 mt-4 p-2" rows="4" placeholder="Nội dung. Tối thiểu 15 kí tự"></textarea>
+                                <textarea name="comment" class="w-100 mt-4 p-4" rows="3" style="font-size: 13px" placeholder="Nội dung. Tối thiểu 15 kí tự"></textarea>
                             </div>
 
                             <div class="mt-4 d-flex justify-content-between">
@@ -995,14 +1038,25 @@
         </div>
     </section>
     <!--end Thông tin, địa chỉ -->
-
-    <script type="text/javascript" src="{{ URL::asset('assets/js/top_slide.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('assets/js/hover_phone.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets/js/flashSale_hour.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('assets/js/hover.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('assets/js/top_slide.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('assets/js/phone.js') }}"></script>
 
+    <script type="text/javascript">
+        let address = document.getElementById('address');
+        let nhanhang1 = document.getElementById('nhanhang1');
+        let nhanhang2 = document.getElementById('nhanhang2');
+
+        nhanhang1.addEventListener('click', function(){
+            address.style.display = 'block';
+            nhanhang1.style.color = '#009981';
+            nhanhang2.style.color = 'black';
+        });
+
+        nhanhang2.addEventListener('click', function(){
+            address.style.display = 'none';
+            nhanhang1.style.color = 'black';
+            nhanhang2.style.color = '#009981';
+        });
+    </script>
 </body>
 
 </html>

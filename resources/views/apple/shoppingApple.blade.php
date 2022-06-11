@@ -33,6 +33,10 @@
 </head>
 
 <body>
+    @php
+    $value = session()->get('apple');
+
+    @endphp
     <header>
         <!-- top-navigation -->
         <div class="top-navigation">
@@ -65,25 +69,25 @@
                     <div class="d-flex w-100 bg-white mb-3" style="border-radius: 10px;">
                         <div class="image mt-3 mb-3" style="display: flex; flex-direction: column">
                             <div>
-                                <img src="{{ asset('images/phone_noibat/' . $valuess->image_telephone) }}">
+                                <img src="{{ asset('images/box-home/' . $valuess->image_product) }}" alt="apple">
                             </div>
                             <span
-                                style="padding-left: 20px;padding-right:20px"><strong>{{ $valuess->name_telephone }}</strong></span>
+                                style="padding-left: 20px;padding-right:20px"><strong>{{ $valuess->name_product }}</strong></span>
                             <div>
-                                <strong class="price"> {{ $valuess->price_telephone }} <u>đ</u></strong>
-                                <del>{{ $valuess->sale_telephone }} <u>đ</u></del>
+                                <strong class="price"> {{ $valuess->price }} <u>đ</u></strong>
+                                <del>{{ $valuess->sale }} <u>đ</u></del>
                             </div>
                             <span class="d-block mt-1 mb-1">Số lượng</span>
                             <div class="w-100 d-flex justify-content-center">
                                 <div class="mt-1 bt text-center">
-                                    <form action="{{route('incrementphone', $valuess->id)}}" method="post">
+                                    <form action="{{route('increment', $valuess->home_product_id)}}" method="post">
                                         @csrf
                                         <button>-</button>
                                     </form>
 
                                     <input type="text" value="{{ $valuess->total }}">
 
-                                    <form action="{{route('decrementphone', $valuess->id)}}" method="post">
+                                    <form action="{{route('decrement', $valuess->home_product_id)}}" method="post">
                                         @csrf
                                         <button>+</button>
                                     </form>
@@ -144,7 +148,7 @@
                             </div>
                         </div>
                         <div class="shoppingCart_delete">
-                            <form action="{{ route('phonecontent.shoppingCart_delete', $valuess->id) }}"
+                            <form action="{{ route('shoppingApple.delete', $valuess->home_product_id) }}"
                                 method="post">
                                 @csrf
                                 <button><strong>x</strong></button>
@@ -167,8 +171,9 @@
                 <h5 class="mb-4"><strong>Thông tin đặt hàng</strong></h5>
                 <span><i>Bạn cần nhập đầy đủ các trường thông tin có dấu *</i></span>
 
-
-                <form action="{{ route('button_shoppingCart') }}" class="buton_form" enctype="multipart/form-data"
+                <form
+                action="{{ route('button_shoppingApple') }}"
+                class="buton_form" enctype="multipart/form-data"
                     method="post" class="mt-3">
                     @csrf
                     <div>
